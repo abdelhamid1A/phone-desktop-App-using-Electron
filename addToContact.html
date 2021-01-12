@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://use.fontawesome.com/1c47ec79f8.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+<body style="overflow: hidden;">
+    
+    <div class="header">
+        <span class="hour" id="time"></span>
+        <span class="info">
+            <i class="fa fa-battery-three-quarters"></i>
+            <i class="fa fa-wifi"></i>
+        </span>
+    </div>
+
+    <div class="content">
+        <label for="numberAdd">phone number</label>
+        <input type="text" id="numberAdd">
+        <label for="name">name</label>
+        <input type="text" id="name">
+        <div id="err" style="color: red;"></div>
+        <button id="btn" onclick="saveContact()">add Contact</button>
+    </div>
+
+
+    
+    <script>
+        const { ipcRenderer } = require('electron');
+        
+        ipcRenderer.on("displayNumber",(e,data)=>{
+            console.log(data)
+            document.getElementById('numberAdd').value = data;
+        })
+        function saveContact(){
+            var number = document.getElementById('numberAdd').value;
+            var name = document.getElementById('name').value;
+            if(number === "" || name === "" ){
+                document.getElementById('err').innerHTML = "please fill all the fields :)";
+            }else{
+                document.getElementById('err').innerHTML = "";
+                console.log('good');
+                var data = "/"+name+","+number;
+                ipcRenderer.send('saveContact',data)
+            }
+        }
+    </script>
+</body>
+</html>

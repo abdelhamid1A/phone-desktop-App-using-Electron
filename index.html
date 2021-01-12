@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://use.fontawesome.com/1c47ec79f8.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+<body style="overflow: hidden;">
+    
+    <div class="header">
+        <span class="hour" id="time"></span>
+        <span class="info">
+            <i class="fa fa-battery-three-quarters"></i>
+            <i class="fa fa-wifi"></i>
+        </span>
+    </div>
+    <div class="main">
+        <form name="form">
+            <textarea class="textview" id="number" name="textview" cols="30" rows="2" onclick="back()" onchange="verify()"></textarea>
+		</form>
+        <table>
+            
+
+            <tr>
+                <td><button class="button" onclick="insert(7)"><input class="" type="button" value="7" ><span>tuv</span></button></td>
+                <td><button class="button" onclick="insert(8)"><input class="" type="button" value="8" ><span>wxyz</span></button></td>
+                <td><button class="button" onclick="insert(9)"><input class="" type="button" value="9" ><span></span></button></td>
+
+            </tr>
+
+            <tr>
+                <td><button class="button" onclick="insert(4)"><input class="" type="button" value="4" ><span>jkl</span></button></td>
+                <td><button class="button" onclick="insert(5)"><input class="" type="button" value="5" ><span>mno</span></button></td>
+                <td><button class="button" onclick="insert(6)"><input class="" type="button" value="6" ><span>pqrs</span></button></td>
+
+            </tr>
+
+            <tr>
+                <td><button class="button" onclick="insert(1)"><input class="" type="button" value="1" ><span>abc</span></button></td>
+                <td><button class="button" onclick="insert(2)"><input class="" type="button" value="2" ><span>def</span></button></td>
+                <td><button class="button" onclick="insert(3)"><input class="" type="button" value="3" ><span>ghi</span></button></td>
+            
+
+            </tr>
+
+            <tr>
+            
+            <td><input class="button" type="button" value="*" onclick="insert('*')"></td>
+            <td><input class="button" type="button" value="0" onclick="insert(0)"></td>
+            <td><input class="button" type="button" value="#" onclick="insert('#')"></td>
+
+            </tr>
+            <tr>
+                <td></td>
+              <td colspan="3"><button class="button btn-call" onclick="addNum()"><i class="fa fa-phone"></i></button></td>  
+            </tr>
+        </table>
+        <div class="footer">
+            <span class="historique" id="btnH"><i class="fa fa-history"></i></span>
+            <span class="" id="contact"><i class="fa fa-address-book"></i></span>
+            <span class="add" id="add" ><i class="fa fa-user-plus"></i></span>
+        </div>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
